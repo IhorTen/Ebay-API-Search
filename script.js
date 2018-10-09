@@ -4,7 +4,6 @@ var max_length = 30;
 var full_inf_length = 9;
 var IdList = [];
 
-
 $('.button_status').on('click', function (elem) {
     curr_el = $(elem.target);
 
