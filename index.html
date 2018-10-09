@@ -1,49 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ebay Search</title>
 
-    <!--<style -->
-    <!--type="text/css">-->
-     <!--body { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; } -->
-     <!--h1 { color: #777; font-weight: normal; font-size: 24px; margin: 0; margin-left: 5px; } -->
-     <!--tr { border-bottom: 1px solid #CCC; padding: 15px 0; display: block; }-->
-    <!--.image-container { text-align: center; border: 1px solid #CCC; width: 150px; } -->
-    <!--.data-container { vertical-align: top; padding-left: 15px; } p { margin: 0 0 5px; } -->
-    <!--.item-link, .item-link:hover, .item-link:visited, -->
-    <!--.item-link:active { text-decoration: none; color: #333; } -->
-    <!--.title { color: #5786bd; font-weight: bold; margin-bottom: 10px; } -->
-    <!--.subtitle { color: #777; font-size: 12px; } -->
-    <!--.price { color: #333; font-weight: bold; } -->
-    <!--.bin { color: #777; font-size: 12px; } -->
-    <!--.fs { font-size: 12px; font-weight: bold; }-->
-    <!--</style>-->
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="lightSlider.css" rel="stylesheet" type="text/css">
+    <link href="theme_styles/style(1).css" rel="stylesheet" type="text/css">
+
+    <style type="text/css">body {
+        font-family: arial, sans-serif;
+    } </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+</head>
+<body class="home page-template-default page page-id-11 wp-custom-logo woocommerce-js right-sidebar fullwidth-layout woocommerce-active">
+<div class="jumbotron jumbotron-fluid" style="text-align: center;"><h1>eBay API Search Results</h1>
+    <button type="button" class="button_status btn btn-success btn-lg">LAUNCHED</button>
+</div>
+
+<div class="container">
+    <div class="mt-container ">
+        <div class="section-title-wrapper has-title">
+            <div class="section-title-block-wrap es-clearfix">
+                <div class="section-title-block">
+                    <h2 class="es-block-title">New Elements</h2><span class="section-info"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="lSSlideOuter ">
+            <ul class="featuredProducts lightSlider lSSlide updated_el_list">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="mt-container ">
+        <div class="section-title-wrapper ">
+            <div class="es-clearfix">
+                <div class="section-title-block">
+                    <h2 class="es-block-title">Saved ID Elements</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Id_List"></div>
+
+</div>
+
+<hr/>
+
+<script src="script.js"></script>
+
+</body>
+</html>
 
 
 
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Ebay Search</title>
-      <link href="style.css" rel="stylesheet" type="text/css">
-      <style type="text/css">body { font-family: arial,sans-serif;} </style>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  </head>
-  <body>
-    <h1>eBay API Search Results</h1>
-    <hr>
-    <h2>New Elements</h2>
-    <div class="updated_el_list"></div>
-    <hr/>
-    <h3>Saved Elements</h3>
-    <div class="Id_List"> Test </div>
 
 
 
 
 
 
-    <script src="script.js"></script>
 
-  </body>
-  </html>
+
+
+<!--<li class="item product col-md-3">-->
+<!--<a href="http://demo.mysterythemes.com/easy-store/product/iphone-with-wireleass-earphone/"-->
+<!--class="woocommerce-LoopProduct-link woocommerce-loop-product__link">-->
+<!--<img-->
+<!--src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe618Ui7FBpeXdl8xBki1o8Mv3ap8seUy44kM8w9e2X8YNAJ1xAA">-->
+<!--</a>-->
+<!--<div class="es-product-title-wrap"><a-->
+<!--href="http://demo.mysterythemes.com/easy-store/product/iphone-with-wireleass-earphone/">-->
+<!--<h2 class="woocommerce-loop-product__title">Iphone With Wireless Device</h2>-->
+<!--</a>-->
+<!--<span class="price">$1,800.00</span>-->
+<!--</div>-->
+<!--<div class="es-product-buttons-wrap">-->
+<!--<a href=""-->
+<!--class="add_to_cart_button">Buy-->
+<!--</a>-->
+<!--<a href="http://demo.mysterythemes.com/easy-store/?add_to_wishlist=30" class="add_to_wishlist">-->
+<!--Add to Wishlist </a>-->
+<!--</div>-->
+<!--</li>-->

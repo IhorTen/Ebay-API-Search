@@ -1,0 +1,216 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a{
+    border: 0;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+html {
+    font-size: 62.5%;
+    /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+    overflow-y: scroll;
+    /* Keeps page centered in all browsers regardless of content height */
+    -webkit-text-size-adjust: 100%;
+    /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+    -ms-text-size-adjust: 100%;
+    /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: #a71616;
+}
+
+.es-clearfix:before,
+.es-clearfix:after,
+.mt-container:after,
+.mt-container:before {
+    content: '';
+    display: table;
+}
+
+.es-clearfix:after,
+.mt-container:after {
+    clear: both;
+}
+
+.es-product-title-wrap a:hover .woocommerce-loop-product__title{
+    color: #cd24fc;
+}
+
+.mt-container {
+    margin: 0 auto;
+}
+
+.section-title-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.section-title-wrapper::before,
+.section-title-wrapper::after {
+    content: "";
+    width: 100%;
+    left: 0;
+    bottom: 8px;
+    height: 1px;
+    background: rgba(33, 144, 222, 0.36);
+    position: absolute;
+}
+
+.section-title-wrapper::before {
+    bottom: 11px;
+}
+
+.section-title-block {
+    float: left;
+    background: #fff;
+    position: relative;
+    padding: 0 20px 0 0;
+    z-index: 99;
+    color: #390d71;
+}
+
+.es-block-title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.product,
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+    position: relative;
+    padding-top:10px;
+}
+li.product .product_container{
+    border: 1px solid #e1e1e1;
+    background-color: #fefbfe;
+    height: 277px;
+}
+
+.product a.woocommerce-LoopProduct-link {
+	display: block;
+	overflow: hidden;
+	text-align: center;
+	padding: 0;
+    height: 150px;
+	margin: 0 10px;
+}
+
+.es-product-title-wrap {
+	padding: 0 10px;
+}
+
+.product a.woocommerce-LoopProduct-link img{
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: ease 0.3s;
+    -o-transition: ease 0.3s;
+    transition: ease 0.3s;
+}
+
+.product:hover a.woocommerce-LoopProduct-link img{
+    -webkit-transform: scale(1.08);
+    -ms-transform: scale(1.08);
+    -o-transform: scale(1.08);
+    transform: scale(1.1);
+}
+
+.woocommerce-loop-product__title {
+    font-size: 15px;
+    font-weight: 500;
+    height: 37px;
+    text-align: center;
+    margin: 10px 0 8px;
+    overflow: hidden;
+}
+
+
+.price,
+.woocommerce ul.products li.product .price {
+    display: block;
+    text-align: center;
+    color: #dd1f26;
+    font-size: 14px;
+}
+
+.es-product-buttons-wrap {
+	background: #fff;
+	margin: 10px 0 0;
+	text-align: center;
+	border-top: 1px solid #e1e1e1;
+	-webkit-transition: ease 0.3s;
+	-o-transition: ease 0.3s;
+	transition: ease 0.3s;
+}
+
+.product:hover .es-product-buttons-wrap{
+    background: rgba(61, 64, 59, 0.87);
+}
+
+.product:hover .es-product-buttons-wrap:after{
+    content: "";
+    clear:both;
+    position: relative;
+    display: block;
+}
+
+.es-product-buttons-wrap a,
+.woocommerce-active ul.products li.product .button {
+	display: block;
+	width: 50%;
+	padding: 9px 4px;
+	color: #040c32;
+	font-size: 12px;
+	background: none;
+	border-radius: 0;
+	line-height: 1.8;
+	font-weight: 400;
+	text-transform: capitalize;
+	vertical-align: top;
+	margin-top: 0;
+	height: auto;
+	float: left;
+}
+
+.woocommerce-active .related .es-product-buttons-wrap a,
+.woocommerce-active .related ul.products li.product .button {
+    padding: 10px 8px;
+}
+
+.product:hover .es-product-buttons-wrap a,
+.woocommerce-active ul.products li.product:hover .button{
+    color: #ffffff;
+}
+
+.woocommerce-active .es-product-buttons-wrap a:hover,
+.woocommerce-active ul.products li.product .button:hover{
+    background: #2968bf;
+    color: #ffffff;
+}
+
+.es-product-buttons-wrap a.add_to_wishlist:hover{
+    background: #DD1F26;
+}
+
+.add_to_cart_button{
+    color: #DD1F26;
+}
+
+
+/* BUTTON STYLES */
+
+.button_stop {
+    color: white;
+    background: brown;
+    font-weight: 900;
+    text-decoration: line-through;
+}
