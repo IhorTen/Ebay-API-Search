@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ebay Search</title>
-
     <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="lightSlider.css" rel="stylesheet" type="text/css">
     <link href="theme_styles/style(1).css" rel="stylesheet" type="text/css">
 
     <style type="text/css">body {
@@ -23,7 +21,13 @@
 </head>
 <body class="home page-template-default page page-id-11 wp-custom-logo woocommerce-js right-sidebar fullwidth-layout woocommerce-active">
 <div class="jumbotron jumbotron-fluid" style="text-align: center;"><h1>eBay API Search Results</h1>
-    <button type="button" class="button_status btn btn-success btn-lg">LAUNCHED</button>
+    <div class="container col-md-3 input-group search_div ">
+        <span class="butt_back_sp"></span>
+        <input type="text" class="form-control search_input" placeholder="Please enter the text of your search"
+               autocomplete="on">
+        <button id="butt_off_on" class="btn btn-success btn-sm button_off_on disabled">Press to stop</button>
+    </div>
+    <button type="button" id="butt_start" class="button_status btn btn-primary btn-lg">Start Search</button>
 </div>
 
 <div class="container">
@@ -35,7 +39,6 @@
                 </div>
             </div>
         </div>
-
         <div class="lSSlideOuter ">
             <ul class="featuredProducts lightSlider lSSlide updated_el_list">
             </ul>
@@ -49,13 +52,11 @@
             <div class="es-clearfix">
                 <div class="section-title-block">
                     <h2 class="es-block-title">Saved ID Elements</h2>
-
                 </div>
             </div>
         </div>
     </div>
     <div class="Id_List"></div>
-
 </div>
 
 <hr/>
@@ -64,35 +65,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<li class="item product col-md-3">-->
-<!--<a href="http://demo.mysterythemes.com/easy-store/product/iphone-with-wireleass-earphone/"-->
-<!--class="woocommerce-LoopProduct-link woocommerce-loop-product__link">-->
-<!--<img-->
-<!--src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe618Ui7FBpeXdl8xBki1o8Mv3ap8seUy44kM8w9e2X8YNAJ1xAA">-->
-<!--</a>-->
-<!--<div class="es-product-title-wrap"><a-->
-<!--href="http://demo.mysterythemes.com/easy-store/product/iphone-with-wireleass-earphone/">-->
-<!--<h2 class="woocommerce-loop-product__title">Iphone With Wireless Device</h2>-->
-<!--</a>-->
-<!--<span class="price">$1,800.00</span>-->
-<!--</div>-->
-<!--<div class="es-product-buttons-wrap">-->
-<!--<a href=""-->
-<!--class="add_to_cart_button">Buy-->
-<!--</a>-->
-<!--<a href="http://demo.mysterythemes.com/easy-store/?add_to_wishlist=30" class="add_to_wishlist">-->
-<!--Add to Wishlist </a>-->
-<!--</div>-->
-<!--</li>-->
