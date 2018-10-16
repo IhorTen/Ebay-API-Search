@@ -6,6 +6,7 @@ var keywords = '';
 
 showIdList();
 
+//создаем Ebay API URL запрос, со всеми нужными параметрами и фильтрами
 function get_url() {
     url = "http://svcs.ebay.com/services/search/FindingService/v1";
     url += "?OPERATION-NAME=findItemsByKeywords";
@@ -38,10 +39,10 @@ function showIdList(root) {
             document.getElementById('showIdList').remove();
         }
 
-        s = document.createElement('script');
-        s.src = real_url;
-        s.id = 'showIdList';
-        document.body.appendChild(s);
+        main_url = document.createElement('script');
+        main_url.src = real_url;
+        main_url.id = 'showIdList';
+        document.body.appendChild(main_url);
     }
 
     setTimeout(function () {
@@ -59,8 +60,10 @@ function _cb_findItemsByKeywords(root) {
     var second = 1000;
 
     if (!IdList.length) {
+        //если масив IdList пустой, то в него добавляются только ID элементов
         IdList = GetNewIdList(items, 'id_list');
     } else {
+        //если масив IdList заполнен ID-ми, то в новый масив updated_elements добавляются элементы со всей информацией
         updated_elements = GetNewIdList(items, '');
 
         for (var i = 0; i < updated_elements.length; i++) {
@@ -68,15 +71,20 @@ function _cb_findItemsByKeywords(root) {
 
             for (var e = 0; e < IdList.length; e++) {
                 if (updated_elements[i].itemId[0] == IdList[e].itemId[0]) {
+                    //если ID повторяются в обоих массивах, условие break
                     new_Id = 'found';
                     break;
                 }
             }
 
             if (!new_Id) {
+                //находим новое ID и дальше проверка на макс длину массива
                 if (IdList.length >= max_length)
                     IdList.splice(max_length - 1, 1);
 
+                //вычисляем разницу во времени от момента когда продукт выставили и до момента когда
+                // поиск его 'выловил', и дальше сортируем по этой временной разнице и добавляем ее значение в
+                // полную информацию об элементе
                 var time_diff = time_Now - Date.parse(updated_elements[i].listingInfo[0].startTime[0]);
 
                 if (time_diff < max_time) {
@@ -91,11 +99,13 @@ function _cb_findItemsByKeywords(root) {
                 }
 
                 var price;
+                //если аукцион то цена элемента будет равна цене Buy It Now, если нет - то обычная
                 if (updated_elements[i].listingInfo[0].listingType[0] === 'AuctionWithBIN')
                     price = updated_elements[i].listingInfo[0].buyItNowPrice[0].__value__;
                 else
                     price = updated_elements[i].sellingStatus[0].currentPrice[0].__value__;
 
+                // создаем сам элемент в html
                 newElemList = '';
                 newElemList += '<li class="item product col-md-3 ">';
                 newElemList += '<div class="product_container">';
@@ -111,12 +121,16 @@ function _cb_findItemsByKeywords(root) {
                 newElemList += '</div>';
                 newElemList += '</li>';
 
+                // сортируем по категории 9355 (Cell Phones & Smartphones)(отображаем элементы только из этой категории)
                 if (updated_elements[i].primaryCategory[0].categoryId[0] === '9355') {
                     IdList.unshift(updated_elements[i]);
+                    //если разница во времени больше 10 мин, элемент в списке New Elements не отображаеться, выводится
+                    // только его ID в списке Saved Elements
                     if (time_diff < max_time)
                         $('.updated_el_list').prepend(newElemList);
 
 
+                    // все элементы до full_inf_length имеют полную информацию, остальные только ID
                     if (IdList.length > full_inf_length)
                         IdList[full_inf_length] = {'itemId': [IdList[full_inf_length].itemId]};
                 }
@@ -124,14 +138,16 @@ function _cb_findItemsByKeywords(root) {
         }
         console.log(IdList);
 
-        var newHTMLid = [];
+        //сохраненные ID всех элементов ( в html это список Saved Elements)
+        var savedHTMLid = [];
         for (var i = 0; i < IdList.length; i++) {
-            newHTMLid.push('<span class="Id_List_new">' + IdList[i].itemId[0] + '</span>');
+            savedHTMLid.push('<span class="Id_List_new">' + IdList[i].itemId[0] + '</span>');
         }
-        $(".Id_List").html(newHTMLid.join(""));
+        $(".Id_List").html(savedHTMLid.join(""));
     }
 }
 
+//функция создает самый первый ID массив (только ID), если он уже есть то пушит всю информацию об новом элементе
 function GetNewIdList(items, only_id) {
     NewidList = [];
 
@@ -159,7 +175,7 @@ function get_keywords() {
     } else
         return keywords;
 }
-
+// код который меняет классы, id, цвета и названия кнопок
 $('.button_status').on('click', function (elem) {
     butt_status = $(elem.target);
     butt_status_id = butt_status.attr('id');
@@ -221,6 +237,7 @@ $('.search_input').on('keypress', function () {
         butt_stat.removeClass('btn-primary');
         butt_stat.addClass('btn-info');
         butt_stat.html('Start New Search');
+        //добавляет кнопку Back которая при нажатии возвращает предыдущее значение keywords, если input был изменен
         $('.butt_back_sp').html('<button id="butt_back" class="btn btn-dark butt_back ">Back</button>');
         $('.butt_back').on('click', function () {
             butt_stat_new = $('#butt_start_new');
@@ -238,3 +255,15 @@ $('.search_input').on('keypress', function () {
         });
     }
 });
+
+// код которые позволяет вводить в input только буквы англ алфавита, цифры и .,+*
+// $('.search_input').on('keypress', function (event) {
+//     var regex = new RegExp("^[a-z.,+*A-Z0-9 ]+$");
+//     var str = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+//     if (regex.test(str)) {
+//         return true;
+//     }
+//
+//     event.preventDefault();
+//     return false
+// });
