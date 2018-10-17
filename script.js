@@ -8,7 +8,7 @@ showIdList();
 
 //создаем Ebay API URL запрос, со всеми нужными параметрами и фильтрами
 function get_url() {
-    url = "http://svcs.ebay.com/services/search/FindingService/v1";
+    url = "https://svcs.ebay.com/services/search/FindingService/v1";
     url += "?OPERATION-NAME=findItemsByKeywords";
     url += "&SERVICE-VERSION=2.0.0";
     url += "&siteid=EBAY-US";
@@ -256,7 +256,7 @@ $('.search_input').on('keypress', function () {
     }
 });
 
-// код которые позволяет вводить в input только буквы англ алфавита, цифры и .,+*
+// код которые позволяет вводить в input только буквы англ-го алфавита,а также цифры и символы .,+*
 // $('.search_input').on('keypress', function (event) {
 //     var regex = new RegExp("^[a-z.,+*A-Z0-9 ]+$");
 //     var str = String.fromCharCode(!event.charCode ? event.which : event.charCode);
